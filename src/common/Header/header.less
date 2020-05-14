@@ -1,0 +1,139 @@
+.header{
+  height: 56px;
+  line-height: 56px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fff;
+  a{
+    display: block;
+    text-decoration: none;
+    color: #555;
+  }
+  .logo {
+    margin: 0 30px;
+    height: 56px;
+
+    img {
+      height: 100%;
+    }
+  }
+  .header-center{
+    width: 800px;
+    margin: 0 auto;
+    ul{
+      li{
+        float: left;
+        font-size: 18px;
+        color: #555;
+        margin-right: 10px;
+        line-height: 56px;
+        padding: 0 20px;
+        &.active{
+           color: #ea6f5a;
+        }
+      }
+      .inputWrap{
+        padding: 0;
+        margin-top: 8px;
+        position: relative;
+        line-height: 40px;
+        input{
+          border: 1px solid #e5e5e5;
+          border-radius: 19px;
+          padding: 0 40px 0 20px;
+          width: 160px;
+          height: 38px;
+          outline: none;
+          top:0;
+          left: 1px;
+          font-size: 14px;
+          background-color: #eee;
+          
+          &.slider-enter {
+            transition: all 0.2s ease-out;
+          }
+
+          &.slider-enter-active,
+          &.slider-enter-done {
+            width: 240px;
+          }
+          &.slider-exit {
+            transition: all 0.2s ease-out;
+          }
+
+          &.slider-exit-active {
+            width: 160px;
+          }
+        }
+        .iconfont{
+          position: absolute;
+          top: 6px;
+          right: 5px;
+          width: 30px;
+          line-height: 30px;
+          border-radius: 15px;
+          text-align: center;
+          &.zoom{
+            background: #777;
+            color: #fff;
+          }
+        }
+        .search-info{
+          position: absolute;
+          top: 48px;
+          left: 0;
+          width: 240px;
+          padding: 0 20px;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+          .search-title{
+            font-size: 14px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            line-height: 20px;
+            color: #969696;
+            span{
+              float: right;
+              font-size: 13px;
+              cursor: pointer;
+            }
+          }
+          .search-content{
+            overflow: hidden;
+            padding-bottom: 15px;
+            a{
+              display: block;
+              float: left;
+              line-height: 20px;
+              padding: 0 5px;
+              font-size: 12px;
+              border-radius: 3px;
+              border: 1px solid #ddd;
+              color: #787878;
+              margin-right: 5px;
+              margin-bottom: 5px;
+            }
+          }
+        }
+       
+      }
+      
+    }
+  }
+  .header-right{
+    ul{
+      li{
+        float: left;
+        font-size: 16px;
+        color: #969696;
+        padding: 0 20px;
+        a{
+          color: #969696;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

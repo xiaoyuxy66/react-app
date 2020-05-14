@@ -1,8 +1,5 @@
-//styled-components 真心用不上来，比较暴躁，先不用了
-import { createGlobalStyle } from 'styled-components';
-//reset.css
-export const GlobalStyle = createGlobalStyle`
-  html, body, div, span, applet, object, iframe,
+@import './static/iconfont/iconfont.css';
+html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -28,7 +25,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
+  box-sizing:border-box;
 }
 ol, ul {
 	list-style: none;
@@ -45,4 +43,18 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-`;
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+
+
+
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
