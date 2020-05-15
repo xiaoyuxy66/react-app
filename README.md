@@ -24,6 +24,8 @@
   9. react-router-dom
     - 单页面应用整个网站在你访问过程中只加载一次html，但是通过a标签跳转，跳转一次就会的加载，耗性能
     - 
+  10. react-loadable (因为访问页面全在bundle.js里面,如果bundle很大，首页显示会很慢，所以要做到访问哪个页面加载哪个页面的js)
+  11. react-router-cache-route 此插件可以满足缓存上一页的功能，即：返回上一页的时候，上一页的滚动条、动作状态等等和离开这个页面时的状态保持一致。
 ### 步骤（step）
   1. create-react-app脚手架创建项目，根据自己要求删减无用代码。
   2. 便于css管理这里用到了styled-components插件,把css文件改成js文件

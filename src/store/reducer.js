@@ -9,10 +9,12 @@ import {combineReducers} from 'redux-immutable'; //让所有数据变成immutabl
 import { reducer as HeaderReducer} from '../common/Header/store';
 import { reducer as HomeReducer} from '../pages/home/store';
 import { reducer as detailReducer} from '../pages/detail/store';
+import { reducer as loginReducer} from '../pages/login/store';
 
 const reducer= combineReducers({
   header:HeaderReducer,
   home: HomeReducer,
-  detail: detailReducer
+  detail: detailReducer,
+  login: loginReducer
 });
 export default reducer;

@@ -1,9 +1,11 @@
 import React from 'react';
 import './header.less';
 import {connect} from 'react-redux';
+import { Link} from 'react-router-dom';
 // import Img from '../../static/logo.png';
 import {CSSTransition} from 'react-transition-group';
 import {creators} from './store';
+import {actionCreators} from '../../pages/login/store';
 
 class Header extends React.Component{
   // constructor(props){
@@ -69,15 +71,17 @@ class Header extends React.Component{
     const { 
       focused, 
       handleFocusInput, 
+      loginStatus,
       list,
-      handleBlurInput 
+      handleBlurInput,
+      logout
     }=this.props;
 
     return(
       <div className="header">
-        <a className="left logo" href="/">
+        <Link className="left logo" to="/">
           <img src={require("../../static/logo.png")} alt="logo"/>
-        </a>
+        </Link>
         <div className="header-center left">
           <ul>
             <li className="active"><a href=" ">首页</a></li>
@@ -94,16 +98,19 @@ class Header extends React.Component{
                   onBlur={handleBlurInput}
                 />
               </CSSTransition>
-              <i className={this.props.focused ? "iconfont iconsousuo zoom" : "iconfont iconsousuo"}></i>
+              <i className={focused ? "iconfont iconsousuo zoom" : "iconfont iconsousuo"}></i>
               {this.getSearchContent()}
             </li>
           </ul>
         </div>
         <div className="header-right right">
           <ul>
-            <li><a href=" ">登陆</a></li>
-            <li><a href=" ">注册</a></li>
-            <li><a href=" ">写文章</a></li>
+            {
+              loginStatus ? 
+              <li onClick={logout} style={{cursor:PointerEvent}}>退出</li> : 
+              <li><Link to="/login">登陆</Link></li>
+            }
+            <li><Link to="/write">写文章</Link></li>
           </ul>
         </div>
       </div>
@@ -131,6 +138,7 @@ const mapStateToProps=(state)=>{
     mouseIn:state.getIn(["header", "mouseIn"]),
     page: state.getIn(["header", "page"]),
     totalPage: state.getIn(["header", "totalPage"]),
+    loginStatus: state.getIn(['login','loginStatus'])
   }
 }
 const mapDispatchToProps=(dispatch)=>{
@@ -152,6 +160,7 @@ const mapDispatchToProps=(dispatch)=>{
     handleMouseLeave(){
       dispatch(creators.mouseLeave());
     },
+    //分页面
     handleChange(page,totalPage){
       console.log(page, totalPage)
       if (page < totalPage){
@@ -159,6 +168,10 @@ const mapDispatchToProps=(dispatch)=>{
       }else{
         dispatch(creators.changePage(1));
       }
+    },
+    //退出登陆
+    logout(){
+      dispatch(actionCreators.logout());
     }
   }
 }
